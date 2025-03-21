@@ -6,7 +6,7 @@
 #    By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/12 19:24:23 by skomatsu          #+#    #+#              #
-#    Updated: 2025/03/12 19:24:26 by skomatsu         ###   ########.fr        #
+#    Updated: 2025/03/21 14:26:51 by skomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ OBJ_SER += $(OBJ_ERR)
 
 CC = cc
 CFLG = -Wall -Wextra -Werror
+AR = ar -rcs
 RM = rm -f
 INCLUDES = -I./includes 
 
@@ -40,6 +41,7 @@ all: $(NAME1) $(NAME2)
 
 $(NAME1): $(OBJS_SER)
 	@$(MAKE) -C $(OBJS_DIR) 
+	
 
 $(NAME2): $(OBJS_CLI)
 
