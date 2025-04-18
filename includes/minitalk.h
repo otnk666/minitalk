@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:58:34 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/21 14:51:35 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/17 18:37:26 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINITALK_H
 
 # include "libft.h"
+# include "ft_printf.h"
 # include <signal.h>
 # include <stdio.h>
 
@@ -23,12 +24,7 @@ typedef struct sigagtion   t_sa;
 
 void    error_handler(char *message, char *sub);
 
-# ifdef __linux__
-# define WAIT_TIME 2000
-# endif
 
-# ifdef __APPLE__
-# define WAIT_TIME 50
-# endif
+# define WAIT_TIME 2000
 
 #endif
