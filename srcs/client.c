@@ -6,25 +6,29 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:02:41 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/03/21 15:11:47 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/04/23 09:58:43 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int send_cahr(pid_t pid, unsigned char c)
+void send_char(pid_t pid, unsigned char c)
 {
     int i;
-    i = BITS_CHAR;
+    i = 7;
     
     while (i >= 0)
     {
-        if(c >> i)
+        if((c & (1 << i )) == 0)
+        {
             if(kill(pid, SIGUSR1) == -1)
                 error_handler("Kill error", "SIGUSER1");
+        }
         else
+        {
             if(kill(pid, SIGUSR2) == -1)
                 error_handler("Kill error", "SIGUSER2");
+        }
         usleep(WAIT_TIME);
         i--;
     }
